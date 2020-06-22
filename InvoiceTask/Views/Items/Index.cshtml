@@ -1,0 +1,69 @@
+﻿@model ItemViewModel
+@{
+    ViewData["Title"] = "Manage Items";
+}
+
+<section>
+    <div class="container my-2 ">
+        <h2 class=" text-center h2">Manage Items</h2>
+        <span class="border-bottom"></span>
+        <div class="row mt-5">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class=" shadows border border-clrd">
+                    <div class="card">
+                        <h5 class="card-header text-center py-4"><strong>Create Item</strong></h5>
+                        <div class="card-body px-lg-4 ">
+                            <form>
+                                <div class="row">
+                                    <input asp-for="id" hidden class="form-control">
+                                    <div class="form-group col-12 col-md-12">
+                                        <input asp-for="name" class="form-control" placeholder="Item Name">
+                                        <span asp-validation-for="name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group col-12 col-md-12">
+                                        <input asp-for="price" class="form-control" placeholder="Item Price">
+                                        <span asp-validation-for="price" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group col-12 col-md-12">
+                                        <select asp-for="storeId" asp-items="ViewBag.StoreID">
+                                        </select>
+                                        <span asp-validation-for="storeId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <button type="submit" class="btn btn-success" id="btnAdd" onclick="return AddItem();">Add Item</button>
+                                        <button type="button" class="btn btn-danger" id="btnUpdate" style="display:none;" onclick="return UpdateItem();">Update Item</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<table class="table table-bordered table-striped shadows mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Store Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody class="tbody table-active"></tbody>
+</table>
+@section scripts{
+    <script src="~/js/Item.js"></script>
+}
+
+
+
+
+

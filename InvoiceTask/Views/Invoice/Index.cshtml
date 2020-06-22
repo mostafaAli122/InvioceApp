@@ -1,0 +1,70 @@
+﻿@model InvoiceViewModel
+@{
+    ViewData["Title"] = "Manage Items";
+}
+    <div class="form-group row">
+        <div class=" col-6 col-md-6 ">
+            <label for="LastInvoiceID">Invoice NO</label>
+            <input type="text" asp-for="LastInvoiceID">
+        </div>
+        
+        <div class=" col-6 col-md-6 ">
+            <label for="InvoiceDate">InvoiceDate</label>
+            <input type="date" id="InvoiceDate">
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class=" col-6 col-md-6">
+            <label asp-for="storeId"> Store</label>
+            <select asp-for="storeId" asp-items="ViewBag.StoreID"></select>
+        </div>
+        <div class=" col-6 col-md-6 ">
+            <input type="button" id="Add" value="Add">
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered table-striped shadows mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Item</th>
+                    <th>Unit</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Discount</th>
+                    <th>Net</th>
+
+                </tr>
+            </thead>
+            <tbody class="tbody table-active">
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group float-right row">
+        <div class=" col-4 col-md-4 ">
+            <label for="InvoiceTotal">Total</label>
+            <input asp-for="InvoiceTotal" class="form-control">
+        </div>
+
+        <div class=" col-4 col-md-4 ">
+            <label for="InvoiceTaxes">Taxes</label>
+            <input asp-for="InvoiceTaxes" class="form-control">
+        </div>
+        <div class=" col-4 col-md-4 ">
+            <label for="Invoicenet">net</label>
+            <input asp-for="Invoicenet" class="form-control">
+        </div>
+        <div class=" col-6 col-md6 btn-block mb-3">
+            <input type="button" class="btn btn-success" value="Save" id="save" class="form-control">
+        </div>
+
+        <div class=" col-6 col-md-6  btn-block mb-3 m-auto">
+            <input type="button" class="btn btn-danger" value="Delete" id="delete" class="form-control">
+        </div>
+    </div>
+
+@section scripts{
+    <script src="~/js/Invoice.js"></script>
+}
